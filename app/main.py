@@ -10,6 +10,7 @@ app = FastAPI()
 
 @app.on_event("startup")
 async def on_startup():
+    # Ensure the database is initialized
     await init_db()
 
 @app.post("/books/", response_model=BookResponse,status_code=201)
